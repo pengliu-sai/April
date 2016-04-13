@@ -1,0 +1,36 @@
+syntax = "proto2";
+
+message Admin_PingC2S {
+    required string Content = 1;
+}
+
+message Admin_PingS2C {
+    required string Content = 1;
+}
+
+message Admin_UserLoginC2S {
+    required string Name = 1;
+    required string Password = 2;
+}
+
+message Admin_UserLoginS2C {
+    optional uint64 UserID = 1;
+}
+
+message Admin_UserRegisterC2S {
+    required string Name = 1;
+    required string Password = 2;
+}
+
+message Admin_UserRegisterS2C {
+    optional uint64 UserID = 1;
+    optional string Name = 2;
+}
+
+message Admin_UserExitC2S {
+    optional uint64 Optional_UserID = 1;
+}
+
+message Admin_UserExitS2C {
+    required bool Result = 1;
+}

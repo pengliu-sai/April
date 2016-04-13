@@ -1,0 +1,33 @@
+syntax = "proto2";
+
+message World_PingC2S {
+    required string Content = 1;
+}
+
+message World_PingS2C {
+    required string Content = 1;
+}
+
+message World_RegisterRoleIDC2S {
+    required uint64 RoleID = 1;
+}
+
+message World_RegisterRoleIDS2C {
+    required bool Result = 1;
+    required uint64 RoleID = 2;
+}
+
+message World_SendChatC2S {
+    required uint64 RoleID = 1;
+    required string Content = 2;
+}
+
+message World_SendChatS2C {
+    required bool Result = 1;
+}
+
+//接收聊天信息
+message World_Receive_ChatS2C {
+    required uint64 RoleID = 1;
+    required string Content = 3;
+}

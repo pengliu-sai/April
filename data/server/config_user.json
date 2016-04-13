@@ -1,0 +1,13 @@
+{
+  "white_user_list": [
+    {"name": "zhangsan"},
+    {"name": "lisi"},
+    {"name": "wangwu"}
+  ],
+
+  "black_user_list": [
+    {"name": "zzzzzz"},
+    {"name": "xxxxxx"},
+    {"name": "oooooo"}
+  ]
+}

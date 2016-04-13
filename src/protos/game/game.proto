@@ -1,0 +1,127 @@
+syntax = "proto2";
+
+message Game_PingC2S {
+    required string Content = 1;
+}
+
+message Game_PingS2C {
+    required string Content = 1;
+}
+
+message Game_RegisterUserIDC2S {
+    required uint64 UserID = 1;
+}
+
+message Game_RegisterUserIDS2C {
+    required bool Result = 1;
+    required uint64 UserID = 2; // ID回传
+}
+
+message Game_RegisterRoleIDC2S {
+    required uint64 RoleID = 1;
+}
+
+message Game_RegisterRoleIDS2C {
+    required bool Result = 1;
+}
+
+enum SexEnum {
+    male = 0;
+    female = 1;
+}
+
+enum RacesEnum {
+    warrior = 0;   //战士
+    enchanter = 1; //魔法师
+    archer = 2;    //弓箭手
+}
+
+message Game_RandomRoleNameC2S {
+    required SexEnum Sex = 1;
+}
+
+message Game_RandomRoleNameS2C {
+    required string Name = 1;
+}
+
+message Game_RoleCreateC2S {
+    required string Name = 1;
+    required SexEnum Sex = 2;
+    required RacesEnum race = 3;
+}
+
+message Game_RoleCreateS2C {
+    optional uint64 RoleID = 1;
+    optional string RoleName = 2;
+    optional SexEnum Sex = 3;
+    optional RacesEnum race = 4;
+}
+
+message RoleInfo {
+    optional uint64 RoleID = 1;
+    optional string RoleName = 2;
+    optional SexEnum sex = 3;
+    optional RacesEnum race = 4;
+}
+
+message Game_RoleInfoListC2S {
+}
+
+message Game_RoleInfoListS2C {
+    repeated RoleInfo roles = 1;
+}
+
+message Game_EnterScenesC2S {
+    required uint64 RoleID = 1;
+}
+
+message Game_EnterScenesS2C {
+    required bool Result = 1;
+}
+
+message Game_ExitScenesC2S {
+
+}
+
+message Game_ExitScenesS2C {
+    required bool Result = 1;
+}
+
+message Game_SendChatC2S {
+    required uint64 RoleID = 1;
+    required string Content = 2;
+}
+
+message Game_SendChatS2C {
+    required bool Result = 1;
+}
+
+//接收聊天信息
+message Game_Receive_ChatS2C {
+    required uint64 RoleID = 1;
+    required string RoleName = 2;
+    required string Content = 3;
+}
+
+message Game_RoleInfoByRoleIDC2S {
+    required uint64 RoleID = 1;
+}
+
+message Game_RoleInfoByRoleIDS2C {
+    optional RoleInfo role = 1;
+}
+
+message Game_AddFriendC2S {
+    required uint64 FriendID = 1;
+}
+
+message Game_AddFriendS2C {
+    required bool Result = 1;
+}
+
+message Game_FriendListC2S {
+}
+
+message Game_FriendListS2C {
+    repeated RoleInfo friends = 1;
+}

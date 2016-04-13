@@ -1,0 +1,9 @@
+syntax = "proto2";
+
+message Gate_PingC2S {
+    required string Content = 1;
+}
+
+message Gate_PingS2C {
+    required string Content = 1;
+}

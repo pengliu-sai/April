@@ -1,0 +1,6 @@
+syntax = "proto2";
+
+message DB_UpdateLastLoginTime {
+    required uint64 UserID = 1;
+    required int64 Time = 2;
+}

@@ -1,0 +1,71 @@
+/*
+C2S是奇数(客户端->服务端通信)
+S2C是偶数(服务端->客户端通信)
+*/
+syntax = "proto2";
+
+enum MsgID {
+    /*------[[system 1-900]]-----*/
+    System_LogC2S = 1;
+    System_LogS2C = 2;
+
+    /*------[[gate 901-1000]]--------*/
+    Gate_PingC2S = 901;
+    Gate_PingS2C = 902;
+
+    /*-----[[admin 1001-2000]]-------*/
+    Admin_UserLoginC2S = 1001;
+    Admin_UserLoginS2C = 1002;
+    Admin_UserRegisterC2S = 1003;
+    Admin_UserRegisterS2C = 1004;
+    Admin_UserExitC2S = 1005;
+    Admin_UserExitS2C = 1006;
+
+
+    /*-----[[game 2001-5000]]-------*/
+    Game_PingC2S = 2001;
+    Game_PingS2C = 2002;
+    Game_RegisterUserIDC2S = 2003;
+    Game_RegisterUserIDS2C = 2004;
+    Game_RegisterRoleIDC2S = 2005;
+    Game_RegisterRoleIDS2C = 2006;
+    Game_RandomRoleNameC2S = 2007;
+    Game_RandomRoleNameS2C = 2008;
+    Game_RoleCreateC2S = 2009;
+    Game_RoleCreateS2C = 2010;
+    Game_RoleInfoListC2S = 2011;
+    Game_RoleInfoListS2C = 2012;
+    Game_EnterScenesC2S = 2013;
+    Game_EnterScenesS2C = 2014;
+    Game_ExitScenesC2S = 2015;
+    Game_ExitScenesS2C = 2016;
+    Game_RoleInfoByRoleIDC2S = 2017;
+    Game_RoleInfoByRoleIDS2C = 2018;
+    Game_FriendListC2S = 2019;
+    Game_FriendListS2C = 2020;
+    Game_AddFriendC2S = 2021;
+    Game_AddFriendS2C = 2022;
+    //game-world通用的消息ID-->start
+    Game_SendChatC2S = 2023;
+    Game_SendChatS2C = 2024;
+    Game_Receive_ChatS2C = 2026;
+    //game-world通用的消息ID-->end
+
+
+    /*-----[[world 5001-6000]]------*/
+    World_PingC2S = 5001;
+    World_PingS2C = 5002;
+    World_RegisterRoleIDC2S = 5003;
+    World_RegisterRoleIDS2C = 5004;
+    //world-game通用的消息ID-->start
+    World_SendChatC2S = 5005;
+    World_SendChatS2C = 5006;
+    World_Receive_ChatS2C = 5008;
+    //world-game通用的消息ID-->end
+
+
+    /*----[[db 6001-9000]]-------*/
+    //DB不要求回调, 不区分奇偶
+    DB_UpdateLastLoginTime = 6001;
+
+}

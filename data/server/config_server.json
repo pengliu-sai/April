@@ -1,0 +1,36 @@
+{
+  "area": {"id": 1, "name": "1区", "desc": "第一大区"},
+  "gate_server": {"name": "gate01", "ip": "127.0.0.1", "port": "7100", "desc": "网关服务器", "log_file": "gate.log"},
+  "admin_server": {"name": "admin01", "ip": "127.0.0.1", "port": "7200", "desc": "中心服务器","log_file": "admin.log"},
+  "chat_server": {"name": "chat01", "ip": "127.0.0.1", "port": "7300", "desc": "聊天服务器", "log_file": "chat.log"},
+  "world_server": {"name": "world01", "ip": "127.0.0.1", "port": "7400", "desc": "跨服服务器", "log_file": "world.log"},
+  "log_server": {"name": "log01", "ip": "127.0.0.1", "port": "7500", "log_file": "log_self.log"},
+  "game_server_list": [
+    {"name": "game1_1", "ip": "127.0.0.1", "port": "8881", "desc": "游戏服务器1_1", "log_file": "game1_1.log"},
+    {"name": "game1_2", "ip": "127.0.0.1", "port": "8882", "desc": "游戏服务器1_2", "log_file": "game1_2.log"},
+    {"name": "game1_3", "ip": "127.0.0.1", "port": "8883", "desc": "游戏服务器1_3", "log_file": "game1_3.log"},
+    {"name": "game1_4", "ip": "127.0.0.1", "port": "8884", "desc": "游戏服务器1_4", "log_file": "game1_4.log"},
+    {"name": "game1_5", "ip": "127.0.0.1", "port": "8885", "desc": "游戏服务器1_5", "log_file": "game1_5.log"},
+    {"name": "game1_6", "ip": "127.0.0.1", "port": "8886", "desc": "游戏服务器1_6", "log_file": "game1_6.log"},
+    {"name": "game1_7", "ip": "127.0.0.1", "port": "8887", "desc": "游戏服务器1_7", "log_file": "game1_7.log"},
+    {"name": "game1_8", "ip": "127.0.0.1", "port": "8888", "desc": "游戏服务器1_8", "log_file": "game1_8.log"},
+    {"name": "game1_9", "ip": "127.0.0.1", "port": "8889", "desc": "游戏服务器1_9", "log_file": "game1_9.log"}
+  ],
+  "redis": [
+    {"name": "admin_redis", "ip": "127.0.0.1", "port": "6379", "password": "liupeng", "desc": "存储用户数据的redis服务器"},
+    {"name": "game_redis", "ip": "127.0.0.1", "port": "6379", "password": "liupeng", "desc": "存储角色数据的redis服务器"}
+  ],
+  "mysql": [
+    {"name": "admin_db", "ip": "127.0.0.1", "port": "3306", "username": "root",
+            "password": "123456", "database": "admin_db", "charset": "utf8", "desc": "(中心数据)存储用户数据"},
+    {"name": "game_db", "ip": "127.0.0.1", "port": "3306", "username": "root",
+      "password": "123456", "database": "game_db", "charset": "utf8", "desc": "存储game数据"}
+  ],
+  "base": {
+    "debug": true,
+    "log_output": "terminal",
+    "desc": "基础配置",
+    "develop_mode": true
+  }
+}
+
