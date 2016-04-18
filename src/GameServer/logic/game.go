@@ -16,6 +16,10 @@ import (
 	"tools/protocol"
 	"tools/redis"
 	"tools/util"
+	"protos/config"
+	"fmt"
+	"github.com/golang/protobuf/proto"
+	"io/ioutil"
 )
 
 var (
@@ -41,6 +45,31 @@ var (
 
 	developMode bool
 )
+
+var (
+	globalConfig config.GlobalConfigInfo
+	gameConfigFileName = os.Getenv("APRIL_PATH") + "data/config/config.data"
+)
+
+func loadGameConfig() {
+	globalConfig = config.GlobalConfigInfo{}
+	fileByte, err := ioutil.ReadFile(gameConfigFileName)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	err = proto.Unmarshal(fileByte, &globalConfig)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	INFO("globalConfig: ", *globalConfig.FbInfoList.FbList[0].FBName)
+
+	INFO("loadGameConfigToMemory success!")
+
+}
 
 func init() {
 	developMode = cfg.IsDevelopMode()
@@ -93,11 +122,13 @@ func InitGameServer() {
 			uint16(MsgID_Game_EnterScenesC2S):    gameEnterScenes,
 			uint16(MsgID_Game_ExitScenesC2S):     gameExitScenes,
 
-			/*------game/world 共有消息处理--*/
 			uint16(MsgID_Game_SendChatC2S):         gameSendChat,
 			uint16(MsgID_Game_RoleInfoByRoleIDC2S): gameRoleInfoByRoleID,
 			uint16(MsgID_Game_FriendListC2S):       gameFriendList,
 			uint16(MsgID_Game_AddFriendC2S):        gameAddFriend,
+			uint16(MsgID_Game_FBChapterListC2S): gameFBChapterList,
+			uint16(MsgID_Game_FBSectionListC2S): gameFBSectionListByChapterID,
+
 		},
 	})
 
@@ -112,6 +143,8 @@ func StartGameServer() {
 	InitDB()
 	InitRedis()
 	InitGameServer()
+
+	loadGameConfig()
 
 	addr := "127.0.0.1" + ":" + cfg.GetServerConfig().GameServerList[gameIndex-1].Port
 

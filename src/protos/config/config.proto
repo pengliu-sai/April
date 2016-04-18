@@ -1,5 +1,17 @@
 syntax = "proto2";
 
+message FBChapterInfo {
+    required int64 ID = 1;
+    required int64 ChapterID = 2;
+    required string ChapterName = 3;
+    required string ChapterDesc = 4;
+    required string ChapterBG = 6;
+}
+
+message FBChapterInfoList {
+    repeated FBChapterInfo fbChapterList = 1;
+}
+
 message FBInfo {
     required int64 ID = 1;
     required int64 FBID = 2;
@@ -7,6 +19,7 @@ message FBInfo {
     required string FBDesc = 4;
     required string MonsterGroupID = 5;
     required string ItemGroupID = 6;
+    required int64 ChapterID = 7;
 }
 
 message FBInfoList {
@@ -86,10 +99,11 @@ message SkillInfoList {
 
 
 message GlobalConfigInfo {
-    required FBInfoList fbInfoList = 1;
-    required ItemInfoList itemInfoList = 2;
-    required ItemGroupInfoList itemGroupInfoList = 3;
-    required SkillInfoList skillInfoList = 4;
-    required MonsterInfoList monsterInfoList = 5;
-    required MonsterGroupInfoList monsterGroupInfoList = 6;
+    required FBChapterInfoList fbChapterInfoList = 1;
+    required FBInfoList fbInfoList = 2;
+    required ItemInfoList itemInfoList = 3;
+    required ItemGroupInfoList itemGroupInfoList = 4;
+    required SkillInfoList skillInfoList = 5;
+    required MonsterInfoList monsterInfoList = 6;
+    required MonsterGroupInfoList monsterGroupInfoList = 7;
 }

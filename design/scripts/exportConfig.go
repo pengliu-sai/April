@@ -1,21 +1,20 @@
 package main
 
 import (
-	"fmt"
-	"os"
-	"log"
-	"io/ioutil"
-	. "protos/config"
-	"github.com/golang/protobuf/proto"
 	"fb"
+	"fmt"
+	"github.com/golang/protobuf/proto"
+	"io/ioutil"
 	"item"
-	"skill"
+	"log"
 	"monster"
+	"os"
+	. "protos/config"
+	"skill"
 )
 
 var (
 	configFileName string
-
 )
 
 //读取excel数据, 导出成proto数据
@@ -23,6 +22,8 @@ func main() {
 	configFileName = os.Getenv("APRIL_PATH") + "design/data/config.data"
 
 	globalConfig := GlobalConfigInfo{}
+	//导出chapter配置
+	globalConfig.FbChapterInfoList = fb.ExportFBChapterConfig()
 	//导出fb配置
 	globalConfig.FbInfoList = fb.ExportFBConfig()
 	//导出物品配置
@@ -83,7 +84,6 @@ func loadToMemory() {
 	}
 
 	fmt.Println("globalConfig: ", *globalConfig.FbInfoList.FbList[0].FBName)
-
 
 	log.Println("loadToMemory success!")
 }

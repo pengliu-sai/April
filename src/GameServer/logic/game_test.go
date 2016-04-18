@@ -64,6 +64,8 @@ func init() {
 			uint16(MsgID_Game_RoleInfoByRoleIDS2C): _roleInfoByRoleIDCallBack,
 			uint16(MsgID_Game_FriendListS2C):       _friendListCallBack,
 			uint16(MsgID_Game_AddFriendS2C):        _addFriendCallBack,
+			uint16(MsgID_Game_FBChapterListS2C):    _fbChapterListCallBack,
+			uint16(MsgID_Game_FBSectionListS2C):    _fbSectionListCallBack,
 		},
 	})
 	clientMsgDispatch = dispatch.NewDispatch(handle)
@@ -502,4 +504,52 @@ func _addFriendCallBack(session *link.Session, msg protos.ProtoMsg) {
 	} else {
 		ERR(err_msg)
 	}
+}
+
+func Test_FBChapterList(t *testing.T) {
+	TestOnline_jielun(t)
+
+	waitGroup.Add(1)
+	send_msg := protos.MarshalProtoMsg(&game.Game_FBChapterListC2S{})
+	DEBUG("send fbChapterList message")
+	clientSession_liupeng.Send(send_msg)
+	waitGroup.Wait()
+}
+
+
+func _fbChapterListCallBack(session *link.Session, msg protos.ProtoMsg) {
+	defer waitGroup.Done()
+	DEBUG("receive fbChapterListS2C message")
+	rev_msg := msg.Body.(*game.Game_FBChapterListS2C)
+	err_msg := "fbChapterList error"
+	if rev_msg != nil && rev_msg.FbChapterList != nil {
+		Assert(global_t, len(rev_msg.FbChapterList)> 0, err_msg)
+	} else {
+		ERR(err_msg)
+	}
+}
+
+func Test_FBSectionList(t *testing.T) {
+	TestOnline_jielun(t)
+
+	waitGroup.Add(1)
+	send_msg := protos.MarshalProtoMsg(&game.Game_FBSectionListC2S{
+		ChapterID: protos.Int64(1),
+	})
+	DEBUG("send fbSectionList message")
+	clientSession_liupeng.Send(send_msg)
+	waitGroup.Wait()
+}
+
+func _fbSectionListCallBack(session *link.Session, msg protos.ProtoMsg) {
+	defer waitGroup.Done()
+	DEBUG("receive fbSectionListS2C message")
+	rev_msg := msg.Body.(*game.Game_FBSectionListS2C)
+	err_msg := "fbSectionList error"
+	if rev_msg != nil && rev_msg.FbInfoList != nil {
+		Assert(global_t, len(rev_msg.FbInfoList) > 0, err_msg)
+	} else {
+		ERR(err_msg)
+	}
+
 }

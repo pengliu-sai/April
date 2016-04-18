@@ -34,8 +34,8 @@ const (
 )
 
 const (
-	menu_group_ID = "ID"
-	menu_group_MonsterID = "怪物群组ID"
+	menu_group_ID          = "ID"
+	menu_group_MonsterID   = "怪物群组ID"
 	menu_group_MonsterName = "怪物群组名称"
 	menu_group_MonsterData = "怪物群组数据"
 	menu_group_MonsterDesc = "怪物群组描述"
@@ -112,7 +112,6 @@ func ExportMonsterConfig() *MonsterInfoList {
 
 	return &monsterInfoList
 }
-
 
 func ExportMonsterGroupConfig() *MonsterGroupInfoList {
 	monsterGroupInfoList := MonsterGroupInfoList{}

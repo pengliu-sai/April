@@ -31,7 +31,6 @@ func InitGameMsgID() {
 	protos.RegisterMsgID(uint16(MsgID_Game_ExitScenesC2S), Game_ExitScenesC2S{})
 	protos.RegisterMsgID(uint16(MsgID_Game_ExitScenesS2C), Game_ExitScenesS2C{})
 
-	//公用gameProto结构体
 	protos.RegisterMsgID(uint16(MsgID_Game_SendChatC2S), Game_SendChatC2S{})
 	protos.RegisterMsgID(uint16(MsgID_Game_SendChatS2C), Game_SendChatS2C{})
 	protos.RegisterMsgID(uint16(MsgID_Game_Receive_ChatS2C), Game_Receive_ChatS2C{})
@@ -44,5 +43,14 @@ func InitGameMsgID() {
 
 	protos.RegisterMsgID(uint16(MsgID_Game_AddFriendC2S), Game_AddFriendC2S{})
 	protos.RegisterMsgID(uint16(MsgID_Game_AddFriendS2C), Game_AddFriendS2C{})
+
+	protos.RegisterMsgID(uint16(MsgID_Game_FBChapterListC2S), Game_FBChapterListC2S{})
+	protos.RegisterMsgID(uint16(MsgID_Game_FBChapterListS2C), Game_FBChapterListS2C{})
+
+	protos.RegisterMsgID(uint16(MsgID_Game_FBSectionListC2S), Game_FBSectionListC2S{})
+	protos.RegisterMsgID(uint16(MsgID_Game_FBSectionListS2C), Game_FBSectionListS2C{})
+
+	protos.RegisterMsgID(uint16(MsgID_Game_FBBattleC2S), Game_FBBattleC2S{})
+	protos.RegisterMsgID(uint16(MsgID_Game_FBBattleS2C), Game_FBBattleS2C{})
 
 }

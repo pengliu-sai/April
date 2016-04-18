@@ -10,14 +10,14 @@ import (
 
 const (
 	skillFileName = "技能表.xlsx"
-	sheetName  = "技能"
+	sheetName     = "技能"
 )
 
 const (
-	menu_ID           = "ID"
-	menu_SkillID         = "技能ID"
-	menu_SkillName       = "技能名称"
-	menu_SkillDesc       = "技能描述"
+	menu_ID          = "ID"
+	menu_SkillID     = "技能ID"
+	menu_SkillName   = "技能名称"
+	menu_SkillDesc   = "技能描述"
 	menu_SkillEffect = "技能特效"
 )
 

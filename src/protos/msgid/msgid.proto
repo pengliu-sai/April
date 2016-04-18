@@ -45,11 +45,15 @@ enum MsgID {
     Game_FriendListS2C = 2020;
     Game_AddFriendC2S = 2021;
     Game_AddFriendS2C = 2022;
-    //game-world通用的消息ID-->start
     Game_SendChatC2S = 2023;
     Game_SendChatS2C = 2024;
     Game_Receive_ChatS2C = 2026;
-    //game-world通用的消息ID-->end
+    Game_FBChapterListC2S = 2027;
+    Game_FBChapterListS2C = 2028;
+    Game_FBSectionListC2S = 2029;
+    Game_FBSectionListS2C = 2030;
+    Game_FBBattleC2S = 2031;
+    Game_FBBattleS2C = 2032;
 
 
     /*-----[[world 5001-6000]]------*/
@@ -57,11 +61,9 @@ enum MsgID {
     World_PingS2C = 5002;
     World_RegisterRoleIDC2S = 5003;
     World_RegisterRoleIDS2C = 5004;
-    //world-game通用的消息ID-->start
     World_SendChatC2S = 5005;
     World_SendChatS2C = 5006;
     World_Receive_ChatS2C = 5008;
-    //world-game通用的消息ID-->end
 
 
     /*----[[db 6001-9000]]-------*/

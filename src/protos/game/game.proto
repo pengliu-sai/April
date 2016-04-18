@@ -1,5 +1,7 @@
 syntax = "proto2";
 
+import "config.proto";
+
 message Game_PingC2S {
     required string Content = 1;
 }
@@ -124,4 +126,30 @@ message Game_FriendListC2S {
 
 message Game_FriendListS2C {
     repeated RoleInfo friends = 1;
+}
+
+message Game_FBChapterListC2S {
+
+}
+
+message Game_FBChapterListS2C {
+    repeated FBChapterInfo fbChapterList = 1;
+}
+
+
+
+message Game_FBSectionListC2S {
+    required int64 ChapterID = 1;
+}
+
+message Game_FBSectionListS2C {
+    repeated FBInfo fbInfoList = 1;
+}
+
+message Game_FBBattleC2S {
+    required int64 SectionID = 1;
+}
+
+message Game_FBBattleS2C {
+
 }

@@ -9,21 +9,21 @@ import (
 )
 
 const (
-	itemFileName = "物品表.xlsx"
-	itemSheetName  = "物品"
+	itemFileName       = "物品表.xlsx"
+	itemSheetName      = "物品"
 	itemGroupSheetName = "物品群组"
 )
 
 const (
-	menu_ID           = "ID"
-	menu_ItemID       = "物品ID"
-	menu_ItemName     = "物品名称"
-	menu_ItemDesc     = "物品描述"
+	menu_ID       = "ID"
+	menu_ItemID   = "物品ID"
+	menu_ItemName = "物品名称"
+	menu_ItemDesc = "物品描述"
 )
 
 const (
-	menu_group_ID = "ID"
-	menu_group_ItemID = "物品群组ID"
+	menu_group_ID       = "ID"
+	menu_group_ItemID   = "物品群组ID"
 	menu_group_ItemName = "物品群组名称"
 	menu_group_ItemData = "物品数据"
 	menu_group_ItemDesc = "物品群组描述"
@@ -130,7 +130,6 @@ func ExportItemGroupConfig() *ItemGroupInfoList {
 	return &itemGroupInfoList
 }
 
-
 func checkItemHead(sheets []*xlsx.Sheet) {
 	for _, sheet := range sheets {
 		if sheet.Name == itemSheetName {
@@ -228,4 +227,3 @@ func getItemGroupInfoLen(sheets []*xlsx.Sheet) int {
 	}
 	return 0
 }
-
