@@ -1,0 +1,95 @@
+syntax = "proto2";
+
+message FBInfo {
+    required int64 ID = 1;
+    required int64 FBID = 2;
+    required string FBName = 3;
+    required string FBDesc = 4;
+    required string MonsterGroupID = 5;
+    required string ItemGroupID = 6;
+}
+
+message FBInfoList {
+    repeated FBInfo fbList = 1;
+}
+
+message ItemInfo {
+    required int64 ID = 1;
+    required int64 ItemID = 2;
+    required string ItemName = 3;
+    required string ItemDesc = 4;
+}
+
+message ItemInfoList {
+    repeated ItemInfo itemList = 1;
+}
+
+message ItemGroupInfo {
+    required int64 ID = 1;
+    required int64 ItemGroupID = 2;
+    required string ItemGroupName = 3;
+    required string ItemGroupData = 4;
+    required string ItemGroupDesc = 5;
+}
+
+message ItemGroupInfoList {
+    repeated ItemGroupInfo itemGroupList = 1;
+}
+
+message MonsterInfo {
+    required int64 ID = 1;
+    required int64 MonsterID = 2;
+    required string MonsterName = 3;
+    required string MonsterDesc = 4;
+    required int64 HP = 5;
+    required int64 MP = 6;
+    required int64 Strength = 7;
+    required int64 Agility = 8;
+    required int64 PhysicalAttack = 9;
+    required int64 PhysicalDefense = 10;
+    required int64 MagicAttack = 11;
+    required int64 MagicDefense = 12;
+    optional int64 Skill_1 = 13;
+    optional int64 Skill_2 = 14;
+    optional int64 Skill_3 = 15;
+    optional int64 Skill_4 = 16;
+
+}
+
+message MonsterInfoList {
+    repeated MonsterInfo monsterList = 1;
+}
+
+message MonsterGroupInfo {
+    required int64 ID = 1;
+    required int64 MonsterGroupID = 2;
+    required string MonsterGroupName = 3;
+    required string MonsterGroupData = 4;
+    required string MonsterGroupDesc = 5;
+}
+
+message MonsterGroupInfoList {
+    repeated MonsterGroupInfo monsterGroupList = 1;
+}
+
+message SkillInfo {
+    required int64 ID = 1;
+    required int64 SkillID = 2;
+    required string SkillName = 3;
+    required string SkillDesc = 4;
+    required string SkillEffect = 5;
+}
+
+message SkillInfoList {
+    repeated SkillInfo skillList = 1;
+}
+
+
+message GlobalConfigInfo {
+    required FBInfoList fbInfoList = 1;
+    required ItemInfoList itemInfoList = 2;
+    required ItemGroupInfoList itemGroupInfoList = 3;
+    required SkillInfoList skillInfoList = 4;
+    required MonsterInfoList monsterInfoList = 5;
+    required MonsterGroupInfoList monsterGroupInfoList = 6;
+}

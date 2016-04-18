@@ -7,6 +7,7 @@ protoc --plugin=protoc-gen-go=./bin/protoc-gen-go --go_out=. ./src/protos/gate/*
 protoc --plugin=protoc-gen-go=./bin/protoc-gen-go --go_out=. ./src/protos/game/*.proto
 protoc --plugin=protoc-gen-go=./bin/protoc-gen-go --go_out=. ./src/protos/world/*.proto
 protoc --plugin=protoc-gen-go=./bin/protoc-gen-go --go_out=. ./src/protos/db/*.proto
+protoc --plugin=protoc-gen-go=./bin/protoc-gen-go --go_out=. ./src/protos/config/*.proto
 
 
 
